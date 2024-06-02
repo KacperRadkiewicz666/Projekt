@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+ db:
+  image: mysql:latest
+  restart: always
+  environment:
+   MYSQL_ROOT_PASSWORD: P@s$tdB1
+   MYSQL_DATABASE: test
+   MYSQL_USER: admin_db
+   MYSQL_PASSWORD: P@s$tdB1
+  ports:
+   - "3306:3306"
+  volumes:
+   - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+ adminer:
+  image: adminer
+  restart: always
+  ports:
+   - "8080:8080"
+
+
+
+
